@@ -1,0 +1,85 @@
+/******************************************************************************
+** Lab 2: Autocomplete
+******************************************************************************/
+
+Group members:
+Max Yoorkevich
+Sebastian Sela
+Andy Alavinasab
+
+/******************************************************************************
+** 1. Describe how your firstIndexOf() method in RangeBinarySearch.java
+**    finds the first index of a key that equals the search key.
+******************************************************************************/
+
+firstIndexOf uses a binary search to compare an array index to a prefix.
+When the index is before/lower than the key, it cuts off the first half
+of the array and tries again. If the reverse is true it cuts off the
+second half of the array. If the two are equal it sets finalIndex to
+the current index and cuts off the second half of the array in order
+to check if there are any matches before the current index. It then
+returns finalIndex. If no matches are found -1 is returned.
+
+/******************************************************************************
+** 2. State and justify the asymptotic complexity of the operations
+**    in the Autocomplete class in the dictionary size n.
+**    For all Matches and numberOfMatches, the asymptotic complexity
+**    should also depend on the matching terms m.
+**
+**    You may take the number of comparisons as a proxy for the runtime.
+******************************************************************************/
+
+sortDictionary: O(n * log n)
+
+Arrays.sort uses merge sort which always has the complexity O(n * log n).
+
+numberOfMatches: O(log n)
+
+numberOfMatches uses binary search. In the best case scenario, mid is found
+immediately and the complexity then is O(1). The worst case scenarios would
+be if there is no match in the list or that the matches would be either in
+the first or last position of the list.
+
+allMatches: O(n * log n + log m)
+
+First, we search for the first and last index of the matches and put those into
+a new array. Here we used the same method as in numberOfMathces. Afterwards,
+we used merge sort again but used another comparator (byreverseWeightOrder).
+The complexity is a similar combination of the two methods above.
+
+/******************************************************************************
+** Appendix: General information
+**
+** A. Approximately how many hours did you spend on the assignment?
+******************************************************************************/
+
+We did it all together. Approximately 5 hours in total.
+
+/******************************************************************************
+** B. Are there any known bugs / limitations?
+******************************************************************************/
+
+Not to us
+
+/******************************************************************************
+** C. Did you collaborate with any other students on this lab?
+**    If so, please write in what way you collaborated and with whom.
+**    Also include any resources (including the web) that you may
+**    may have used in creating your design.
+******************************************************************************/
+
+[...]
+
+/******************************************************************************
+** D. Describe any serious problems you encountered.                    
+******************************************************************************/
+
+When reading the outputs on the readme, we did not get the same results.
+
+/******************************************************************************
+** E. List any other comments here.
+**    Feel free to provide any feedback on how much you learned 
+**    from doing the assignment, and whether you enjoyed it.                                             
+******************************************************************************/
+
+[...]
